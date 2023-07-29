@@ -1,0 +1,15 @@
+.search-icon{
+    position: relative;
+    top: 8px;
+    right: 46px;
+    color: black;
+}
+.nav-profile-box{
+    /* width:20px */
+}
+.nav-profile-box img{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}

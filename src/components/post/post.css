@@ -1,0 +1,40 @@
+.post{
+    width: 100%;
+    border-radius: 5px; 
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.33); 
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.33);
+    margin:20px 0px;
+}
+.postProfileImg{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.postUsername{
+    margin:0px 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.postDate{
+    font-size: 12px;
+}
+.postImage{
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+.reactionIcons{
+    width: 20px;
+    cursor: pointer;
+    margin-right:3px 
+}
+.postLikeCounter{
+    font-size:12px ;
+    margin-left:3px ;
+}
+.postCommentText{
+    font-size: 15px;
+    cursor: pointer;
+    border-bottom: 1px dashed grey;
+}

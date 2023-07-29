@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Dai Banna SIL', serif;
+    font-family: 'Roboto', sans-serif;}
+    :root{
+        --theme-color:blueviolet;
+        --white:#fff
+    }
+.bg-theme{
+    background-color:var(--theme-color);
+}
+.text-theme{
+    color: var(--theme-color) !important;
+}
+.btn-theme{
+    background-color: var(--theme-color) !important;
+    color: var(--white);
+}
+.btn-theme:hover{
+    background-color: var(--theme-color) !important;
+    opacity: 0.9;
+    color: var(--white);
+}
