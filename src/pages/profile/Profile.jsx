@@ -1,10 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Topbar from '../../components/topbar/Topbar'
 import Sidebar from '../../components/sidebar/Sidebar'
 import "./profile.css"
 import Feed from '../../components/feed/Feed'
 import Rightbar from '../../components/rightbar/Rightbar'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+
 const Profile = () => {
+const [user, setUser] = useState({})
+const params = useParams();
+const username= params.username
+console.log(params)
+    useEffect(() => {
+        axios.get(`/api/users?username=${username}`).then((res) => {
+            setUser(res.data)
+            console.log("data",res.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+        console.log()
+    }, [])
     return (
         <>
             <Topbar />
@@ -15,17 +31,17 @@ const Profile = () => {
                     <div className="profileRightTop">
                     <div className="profileCover">
 
-                        <img className='profileCoverImg' src="/images/post/3.jpeg" alt="" />
-                        <img className='profileUserImg' src="/images/person/3.jpeg" alt="" />
+                        <img className='profileCoverImg' src={user.coverPicture || "/images/person/noCover.png"} alt="" />
+                        <img className='profileUserImg' src={user.profilePicture || "/images/person/noAvatar.png"} alt="" />
                     </div>
                     <div className="profileInfo">
-                        <h4 className='profileInfoName text-center fw-bold'>Malik Talha</h4>
-                        <p className='profileInfoDesc text-center'>Hey Hi i am MERN Stack Developer!</p>
+                        <h4 className='profileInfoName text-center fw-bold'>{user.username}</h4>
+                        <p className='profileInfoDesc text-center'>{user.desc}</p>
                     </div>
                     </div>
                     <div className="profileRightBottom d-flex">
-                        <Feed />
-                        <Rightbar profile/>
+                        <Feed username={username}/>
+                        <Rightbar user={user}/>
 
                     </div>
                 </div>
