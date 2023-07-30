@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import {Link} from "react-router-dom"
 const Topbar = () => {
     return (
         <>
@@ -10,7 +11,7 @@ const Topbar = () => {
                 <nav className="navbar navbar-expand-lg navbar-dark">
                     <div className="text-white container d-flex">
                         <div className="col-6 col-md-3">
-                            <a className="navbar-brand" href="/">ShareVibe</a>
+                            <Link className="navbar-brand" to="/">ShareVibe</Link>
                         </div>
 
                         <form className="col-5 d-none d-md-flex" role="search">

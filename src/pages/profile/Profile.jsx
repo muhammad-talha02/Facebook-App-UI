@@ -15,8 +15,8 @@ const Profile = () => {
                     <div className="profileRightTop">
                     <div className="profileCover">
 
-                        <img className='profileCoverImg' src="./images/post/3.jpeg" alt="" />
-                        <img className='profileUserImg' src="./images/person/3.jpeg" alt="" />
+                        <img className='profileCoverImg' src="/images/post/3.jpeg" alt="" />
+                        <img className='profileUserImg' src="/images/person/3.jpeg" alt="" />
                     </div>
                     <div className="profileInfo">
                         <h4 className='profileInfoName text-center fw-bold'>Malik Talha</h4>

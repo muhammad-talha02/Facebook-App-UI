@@ -7,10 +7,10 @@ const Rightbar = ({ profile }) => {
     return (
       <>
         <div className="birthdayContainer d-flex align-items-center">
-          <img src="./images/gift.png" className="birthdayImg" />
+          <img src="/images/gift.png" className="birthdayImg" />
           <span className="birthdayText"><strong>Tony stark</strong> and <strong> 3 other firends </strong> have a birthday today</span>
         </div>
-        <img src="./images/ad.png" alt="" className="rightbarAd" />
+        <img src="/images/ad.png" alt="" className="rightbarAd" />
         <h4>Online Friends</h4>
         <ul className="onlineFriendsList">
           {
@@ -48,27 +48,27 @@ const Rightbar = ({ profile }) => {
           <h4>User Following</h4>
           <div className="userFollowings d-flex flex-wrap justify-content-between">
             <div className="userFollowingBox d-flex flex-column mb-3">
-              <img className="userFollowingImg" src="./images/person/1.jpeg" />
+              <img className="userFollowingImg" src="/images/person/1.jpeg" />
               <span className="userFollowingText text-center">M Numan</span>
             </div>
             <div className="userFollowingBox d-flex flex-column mb-3">
-              <img className="userFollowingImg" src="./images/person/2.jpeg" />
+              <img className="userFollowingImg" src="/images/person/2.jpeg" />
               <span className="userFollowingText text-center">M Numan</span>
             </div>
             <div className="userFollowingBox d-flex flex-column mb-3">
-              <img className="userFollowingImg" src="./images/person/3.jpeg" />
+              <img className="userFollowingImg" src="/images/person/3.jpeg" />
               <span className="userFollowingText text-center">M Numan</span>
             </div>
             <div className="userFollowingBox d-flex flex-column mb-3">
-              <img className="userFollowingImg" src="./images/person/4.jpeg" />
+              <img className="userFollowingImg" src="/images/person/4.jpeg" />
               <span className="userFollowingText text-center">M Numan</span>
             </div>
             <div className="userFollowingBox d-flex flex-column mb-3">
-              <img className="userFollowingImg" src="./images/person/5.jpeg" />
+              <img className="userFollowingImg" src="/images/person/5.jpeg" />
               <span className="userFollowingText text-center">M Numan</span>
             </div>
             <div className="userFollowingBox d-flex flex-column mb-3">
-              <img className="userFollowingImg" src="./images/person/6.jpeg" />
+              <img className="userFollowingImg" src="/images/person/6.jpeg" />
               <span className="userFollowingText text-center">M Numan</span>
             </div>
           </div>

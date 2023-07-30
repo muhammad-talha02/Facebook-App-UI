@@ -37,8 +37,8 @@ const Post = ({ post }) => {
                 </div>
                 <div className="postBottom d-flex justify-content-between">
                     <div className="postBottomLeft d-flex align-items-center py-2">
-                        <img className="reactionIcons" onClick={likeHandler} src="./images/like.png" alt="" />
-                        <img className="reactionIcons" onClick={likeHandler} src="./images/heart.png" alt="" />
+                        <img className="reactionIcons" onClick={likeHandler} src="/images/like.png" alt="" />
+                        <img className="reactionIcons" onClick={likeHandler} src="/images/heart.png" alt="" />
                         <div className="postLikeCounter">{likes} People like it</div>
                     </div>
                     <div className="postBottomRight d-flex align-items-center">
