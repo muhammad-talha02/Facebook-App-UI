@@ -3,6 +3,7 @@ import { AuthContext } from '../../context/AuthContext'
 import "./login.css"
 import { loginCall } from '../../utils/apiCalls'
 import {CircularProgress} from "@mui/material"
+import { Link } from 'react-router-dom'
 const Login = () => {
 
     const email = useRef()
@@ -12,11 +13,9 @@ const {dispatch, user, isFetching} = useContext(AuthContext)
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log({email:email.current.value,password:password.current.value})
         loginCall({email:email.current.value,password:password.current.value}, dispatch)
 
     };
-    console.log(user)
     return (
         <div className="container-fluid login vh-100 d-flex align-items-center">
 
@@ -44,7 +43,7 @@ const {dispatch, user, isFetching} = useContext(AuthContext)
                             </div>
                             <button type="submit" className="btn btn-theme w-100 "  disabled={isFetching}>{isFetching ?  <CircularProgress color='inherit' size="25px"/> : "login"}</button>
                             <p className='text-center text-theme my-4'>Forgot password?</p>
-                            <button type="submit" disabled={isFetching} className="btn btn-success w-100">Create an account</button>
+                            <Link to="/register" disabled={isFetching} className="btn btn-success w-100">Create an account</Link>
                         </form>
                     </div>
                 </div>

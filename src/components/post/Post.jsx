@@ -1,6 +1,7 @@
 import { MoreVert } from "@mui/icons-material"
 import "./post.css"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import {AuthContext} from "../../context/AuthContext"
 import axios from 'axios'
 import { format } from "timeago.js"
 import { Link } from "react-router-dom"
@@ -11,6 +12,12 @@ const Post = ({ post }) => {
     // console.log(img)
     const [likes, setLikes] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
+
+const {user:currentUser} = useContext(AuthContext)
+
+useEffect(()=>{
+setIsLiked(post.likes.includes(currentUser._id))
+}, [currentUser._id, post.likes])
 
     useEffect(() => {
         axios.get(`/api/users?userId=${userId}`).then((res) => {
@@ -25,11 +32,11 @@ const Post = ({ post }) => {
 
     const likeHandler = (postId) => {
         console.log(postId)
-        axios.put(`/api/posts/${postId}like`).then((res) => {
+        axios.put(`/api/posts/${post._id}/like`, {userId:currentUser._id}).then((res) => {
             console.log(res)
         }).catch(err => console.log(err))
-        // setLikes(isLiked ? likes - 1 : likes + 1)
-        // setIsLiked(!isLiked)
+        setLikes(isLiked ? likes - 1 : likes + 1)
+        setIsLiked(!isLiked)
     }
 
 
@@ -56,8 +63,8 @@ const Post = ({ post }) => {
                 </div>
                 <div className="postBottom d-flex justify-content-between">
                     <div className="postBottomLeft d-flex align-items-center py-2">
-                        <img className="reactionIcons" onClick={() => likeHandler(post._id)} src="/images/like.png" alt="" />
-                        <img className="reactionIcons" onClick={() => likeHandler(post._id)} src="/images/heart.png" alt="" />
+                        <img className="reactionIcons" onClick={likeHandler} src="/images/like.png" alt="" />
+                        <img className="reactionIcons" onClick={ likeHandler} src="/images/heart.png" alt="" />
                         <div className="postLikeCounter">{likes} People like it</div>
                     </div>
                     <div className="postBottomRight d-flex align-items-center">

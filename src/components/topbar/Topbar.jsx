@@ -4,7 +4,11 @@ import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {Link} from "react-router-dom"
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 const Topbar = () => {
+    const {user}= useContext(AuthContext);
+    console.log(user)
     return (
         <>
             <header className="container-fluid bg-theme py-1 sticky-top">
@@ -53,7 +57,10 @@ const Topbar = () => {
 
                         </div>
                         <div className="col-1 nav-profile-box ms-auto cursor-pointer">
-                            <img src="./images/person/1.jpeg" alt="" />
+                           <Link to={`/profile/${user.username}`}>
+
+                           <img src={user.profilePicture || "/images/person/noAvatar.png"} alt="" />
+                           </Link> 
                         </div>
                     </div>
                 </nav>

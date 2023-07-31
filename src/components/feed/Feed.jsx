@@ -2,14 +2,16 @@ import Share from "../share/Share"
 import "./feed.css"
 import Post from "../post/Post"
 // import {Posts} from "../../dummyData"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import { AuthContext } from "../../context/AuthContext"
 const  Feed = ({username}) => {
+  const {user } = useContext(AuthContext)
   const [posts, setPosts] = useState([]);
   // axios.defaults.baseURL = `http://localhost:8000/api`
   useEffect(() => {
     console.log("username",username);
-    const request = username ? `/api/posts/profile/${username}` : `api/posts/timeline/64c619d88f32c24be04f28e6`
+    const request = username ? `/api/posts/profile/${username}` : `api/posts/timeline/${user._id}`
     axios.get(request).then((res) => {
       setPosts(res.data)
       console.log(res.data)
@@ -17,7 +19,7 @@ const  Feed = ({username}) => {
       console.log(error)
     })
     console.log()
-  }, [])
+  }, [username,user._id])
   return (
     <div className="feed">
       <div className="feedWrapper mx-auto col-lg-10 col-12">
