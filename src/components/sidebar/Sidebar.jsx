@@ -3,6 +3,7 @@ import { RssFeed, Chat, PlayCircle, Groups, Bookmark, HelpOutline, WorkOutline, 
 import { Users } from "../../dummyData";
 import CloseFriends from "../closeFriends/CloseFriends";
 const Sidebar = () => {
+    let PB = import.meta.env.VITE_PUBLIC_FOLDER_URL
     return (
         <div className="sidebar p-3">
             <div className="sidebarWrapper">

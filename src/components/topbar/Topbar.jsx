@@ -7,6 +7,7 @@ import {Link} from "react-router-dom"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 const Topbar = () => {
+    let PB = import.meta.env.VITE_PUBLIC_FOLDER_URL
     const {user}= useContext(AuthContext);
     console.log(user)
     return (
@@ -59,7 +60,7 @@ const Topbar = () => {
                         <div className="col-1 nav-profile-box ms-auto cursor-pointer">
                            <Link to={`/profile/${user.username}`}>
 
-                           <img src={user.profilePicture || "/images/person/noAvatar.png"} alt="" />
+                           <img src={PB + user.profilePicture || "/images/person/noAvatar.png"} alt="" />
                            </Link> 
                         </div>
                     </div>

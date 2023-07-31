@@ -5,8 +5,8 @@ const INITIAL_STATE = {
         _id: "64c619d88f32c24be04f28e6",
         username: "talha",
         email: "talha@gmail.com",
-        profilePicture: "/images/person/2.jpeg",
-        coverPicture: "/images/post/4.jpeg",
+        profilePicture: "/person/2.jpeg",
+        coverPicture: "/post/4.jpeg",
         followers: [],
         following: [
             "64c619fc8f32c24be04f28e8",

@@ -4,7 +4,7 @@ import axios from "axios"
 import { AuthContext } from "../../context/AuthContext"
 import { PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-material"
 const Share = () => {
-
+    let PB = import.meta.env.VITE_PUBLIC_FOLDER_URL
     const { user } = useContext(AuthContext);
     const postDesc = useRef();
     const { postPic, setPostPic } = useState(null);
@@ -25,7 +25,7 @@ const Share = () => {
         <div className="share">
             <div className="shareWrapper">
                 <div className="shareTop">
-                    <img className="shareProfileImg" src={user.profilePicture || "/images/person/noAvatar.png"} alt="" />
+                    <img className="shareProfileImg" src={user.profilePicture ? PB + user.profilePicture : PB + "/person/noAvatar.png"} alt="" />
                     <input type="text"
                         placeholder={`What's in your mind ${user.username}?`}
                         className="shareInput"
@@ -38,7 +38,7 @@ const Share = () => {
                         <label htmlFor="file" className="shareOption">
                             <PermMedia htmlColor="tomato" className="shareOptionIcon" />
                             <span className="shareOptionText">Photo or Video</span>
-                            <input className="d-none" type="file" id="file" accept=".jpg, .png, .jpeg" onChange={(e) => setFile(e.target.files[0])} />
+                            <input className="d-none" type="file" id="file" accept=".jpg, .png, .jpeg" onChange={(e) => setPostPic(e.target.files[0])} />
                         </label>
                         <div className="shareOption">
                             <Label htmlColor="blue" className="shareOptionIcon" />

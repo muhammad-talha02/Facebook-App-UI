@@ -11,6 +11,9 @@ const Profile = () => {
 const [user, setUser] = useState({})
 const params = useParams();
 const username= params.username
+
+let PB = import.meta.env.VITE_PUBLIC_FOLDER_URL
+
 console.log(params)
     useEffect(() => {
         axios.get(`/api/users?username=${username}`).then((res) => {
@@ -31,8 +34,8 @@ console.log(params)
                     <div className="profileRightTop">
                     <div className="profileCover">
 
-                        <img className='profileCoverImg' src={user.coverPicture || "/images/person/noCover.png"} alt="" />
-                        <img className='profileUserImg' src={user.profilePicture || "/images/person/noAvatar.png"} alt="" />
+                        <img className='profileCoverImg' src={user.coverPicture ? PB + user.coverPicture : PB + "/person/noCover.png"} alt="" />
+                        <img className='profileUserImg' src={user.profilePicture ? PB + user.profilePicture : PB +  "/person/noAvatar.png"} alt="" />
                     </div>
                     <div className="profileInfo">
                         <h4 className='profileInfoName text-center fw-bold'>{user.username}</h4>

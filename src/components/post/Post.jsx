@@ -6,6 +6,7 @@ import axios from 'axios'
 import { format } from "timeago.js"
 import { Link } from "react-router-dom"
 const Post = ({ post }) => {
+    let PB = import.meta.env.VITE_PUBLIC_FOLDER_URL
     const [user, setUser] = useState({})
     const { desc, img, date, comment, userId } = post;
     // const postUser = Users.filter((user) => user.id == userId)[0];
@@ -46,7 +47,7 @@ setIsLiked(post.likes.includes(currentUser._id))
                 <div className="postTop d-flex justify-content-between">
                     <div className="postTopLeft d-flex align-items-center">
                     <Link to={`profile/${user.username}`}>
-                        <img className='postProfileImg' src={user.profilePicture || "/images/person/noAvatar.png"} alt="" />
+                        <img className='postProfileImg' src={user.profilePicture ? PB + user.profilePicture : PB + "/person/noAvatar.png"} alt="" />
                     </Link>
                         <span className='postUsername'>{user.username}</span>
                         <span className='postDate'>{format(post.createdAt)}</span>
@@ -59,12 +60,12 @@ setIsLiked(post.likes.includes(currentUser._id))
                     <span className="postText py-3 d-block">
                         {post?.desc}
                     </span>
-                    <img src={img} className="postImage" />
+                    <img src={img ? PB + img : null} className="postImage" />
                 </div>
                 <div className="postBottom d-flex justify-content-between">
                     <div className="postBottomLeft d-flex align-items-center py-2">
-                        <img className="reactionIcons" onClick={likeHandler} src="/images/like.png" alt="" />
-                        <img className="reactionIcons" onClick={ likeHandler} src="/images/heart.png" alt="" />
+                        <img className="reactionIcons" onClick={likeHandler} src={PB + "/like.png"} alt="" />
+                        <img className="reactionIcons" onClick={ likeHandler} src={PB + "/heart.png"} alt="" />
                         <div className="postLikeCounter">{likes} People like it</div>
                     </div>
                     <div className="postBottomRight d-flex align-items-center">
