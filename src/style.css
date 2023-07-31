@@ -22,3 +22,6 @@
     opacity: 0.9;
     color: var(--white);
 }
+/* .btn-theme:disabled{
+  cursor: none;
+} */
